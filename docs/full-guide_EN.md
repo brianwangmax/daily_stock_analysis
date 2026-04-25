@@ -300,6 +300,7 @@ Default schedule: Every weekday at **18:00 (Beijing Time)** automatic execution.
 > - TickFlow behavior is capability-based rather than just key-based: limited plans can still enhance main CN indices, while plans with `CN_Equity_A` universe query support also enhance market breadth.
 > - The official quickstart documents `quotes.get(universes=["CN_Equity_A"])`, but online smoke tests confirmed two additional real-world constraints: universe access depends on plan permissions, and `quotes.get(symbols=[...])` has a per-request symbol limit.
 > - TickFlow currently returns `change_pct` / `amplitude` as ratio values; this integration normalizes them to the project's percent convention so they match AkShare / Tushare / efinance semantics.
+> - CN market review pushes now append optional **Hot Sectors** and **Hot Stocks** blocks after the main recap: sectors are ranked by daily change percentage Top N, while stocks are ranked by daily change percentage first and turnover second (ETF excluded). If either dataset is unavailable, only that appendix block is skipped.
 > - Per-stock analysis, realtime quote priority, and sector rankings fallback remain unchanged.
 
 ---
