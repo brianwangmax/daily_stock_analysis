@@ -18,6 +18,11 @@ on:
           - market-only   # 仅大盘复盘
           - stocks-only   # 仅股票分析
       force_run:
+      stocks:
+        description: '股票代码（留空使用默认列表，多个用逗号分隔）'
+        required: false
+        default: ''
+        type: string
         description: '强制运行（跳过交易日检查）'
         required: false
         default: false
@@ -258,7 +263,7 @@ jobs:
           # ==========================================
           # 自选股配置
           # ==========================================
-          STOCK_LIST: ${{ vars.STOCK_LIST || secrets.STOCK_LIST || '600519' }}
+          STOCK_LIST: ${{ inputs.stocks || vars.STOCK_LIST || secrets.STOCK_LIST || '600519' }}
           MARKET_REVIEW_REGION: ${{ vars.MARKET_REVIEW_REGION || secrets.MARKET_REVIEW_REGION || 'cn' }}
           
           # ==========================================
