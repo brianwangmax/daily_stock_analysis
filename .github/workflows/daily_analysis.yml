@@ -32,7 +32,11 @@ on:
 concurrency:
   group: stock-analysis
   cancel-in-progress: false
-# 并发控制：同一时间只运行一个分析任务
+
+jobs:
+  analyze:
+    runs-on: ubuntu-latest
+    # 添加超时限制，防止任务卡死
     timeout-minutes: ${{ fromJSON(vars.ANALYSIS_TIMEOUT_MINUTES || '30') }}
     
     steps:
