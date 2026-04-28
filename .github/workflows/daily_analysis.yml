@@ -263,7 +263,7 @@ jobs:
           # ==========================================
           # 自选股配置
           # ==========================================
-          STOCK_LIST: ${{ vars.STOCK_LIST || secrets.STOCK_LIST || '688981,603501,601857,600938,688728,601398,603259,601318,600941,688213,600276' }}
+          STOCK_LIST: ${{ github.event.inputs.stocks || vars.STOCK_LIST || secrets.STOCK_LIST || '688981,603501,601857,600938,688728,601398,603259,601318,600941,688213,600276' }}
           MARKET_REVIEW_REGION: ${{ vars.MARKET_REVIEW_REGION || secrets.MARKET_REVIEW_REGION || 'cn' }}
           
           # ==========================================
